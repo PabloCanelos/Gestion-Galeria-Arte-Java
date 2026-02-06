@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.pcanelos.galeria.controller;
+package com.galeria.utils;
 
 /**
  *
  * @author Pavilion X360
  */
-public class CuadroControler {
+public class ValidadorMenuCuadro {
     
 }

@@ -3,15 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/pcanelos/galeria/controller/EvaluacionControler.java</file>
-            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/pcanelos/galeria/controller/ConexionBD.java</file>
-            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/pcanelos/galeria/controller/GaleriaControler.java</file>
-            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/pcanelos/galeria/model/Critico.java</file>
-            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/pcanelos/galeria/model/Galeria.java</file>
-            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/pcanelos/galeria/model/Evaluacion.java</file>
-            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/pcanelos/galeria/controller/CriticoControler.java</file>
-            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/pcanelos/galeria/model/Cuadro.java</file>
-            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/pcanelos/galeria/controller/CuadroControler.java</file>
+            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/galeria/view/MenuGaleria.java</file>
+            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/mainMenu/MenuPrincipal.java</file>
+            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/galeria/utils/ValidadorMenuGaleria.java</file>
+            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/galeria/db/ConexionBD.java</file>
+            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/galeria/view/VentanaPrincipal.java</file>
+            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/galeria/utils/ValidacionDatos.java</file>
+            <file>file:/C:/Users/Pavilion%20X360/OneDrive/Documents/NetBeansProjects/Gestion-Galeria-Arte-Java/src/com/galeria/dao/GaleriaDAO.java</file>
         </group>
     </open-files>
 </project-private>

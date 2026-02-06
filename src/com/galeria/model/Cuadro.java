@@ -1,4 +1,4 @@
-package com.pcanelos.galeria.model;
+package com.galeria.model;
 
 /**
  * Clase Modelo para representar un Cuadro (Obra de Arte).

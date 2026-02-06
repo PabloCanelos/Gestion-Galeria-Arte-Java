@@ -1,7 +1,7 @@
 
 
 
-package com.pcanelos.galeria.model;
+package com.galeria.model;
 
 /**
  * Clase Modelo para representar una Galería de Arte.

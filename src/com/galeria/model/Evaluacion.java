@@ -1,4 +1,4 @@
-package com.pcanelos.galeria.model;
+package com.galeria.model;
 
 /**
  * Clase Modelo para representar la Evaluación de un Cuadro por un Crítico.

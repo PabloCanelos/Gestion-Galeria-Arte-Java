@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.pcanelos.galeria.controller;
+package com.galeria.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -36,6 +36,14 @@ public class ConexionBD {
     }
     
     public Connection getConnection(){
+        try {
+            if(conexion == null || conexion.isClosed()){
+                this.conexion = DriverManager.getConnection(URL, USER, PASS);
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("Error al ibntenta r reconectar " + e.getMessage());
+        }
         return conexion;
     }
     

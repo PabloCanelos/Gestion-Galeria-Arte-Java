@@ -1,23 +1,29 @@
 
-package com.pcanelos.galeria.controller;
+package com.galeria.dao;
 import com.mysql.cj.jdbc.result.ResultSetImpl;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import com.pcanelos.galeria.model.Galeria;
-import com.pcanelos.galeria.controller.ConexionBD;
-import java.util.Scanner;
-import javax.sound.midi.SoundbankResource;
+import com.galeria.model.Galeria;
+import com.galeria.db.ConexionBD;
+
+
 /**
  *
  * @author Pavilion X360
  */
-public class GaleriaControler {
+public class GaleriaDAO {
+    private  static GaleriaDAO instancia;
     
+    private GaleriaDAO(){};
     
-    
-   
-    
+    public static GaleriaDAO getInstancia(){
+        if(instancia == null){
+            instancia = new GaleriaDAO();
+        }
+        return instancia;
+    }
+       
     public  boolean crearGaleria(Galeria g){
         String sql = "INSERT INTO galeria (id_galeria, nombre, ciudad) VALUES (?,?,?)";
         try (Connection cn = ConexionBD.getInstancia().getConnection();
@@ -34,7 +40,7 @@ public class GaleriaControler {
         }
         
     }
-    public List<Galeria> listar(){
+    public  List<Galeria> listar(){
         List<Galeria> lista = new ArrayList<>();
         String sql = "SELECT * FROM galeria";
         
@@ -49,11 +55,13 @@ public class GaleriaControler {
                 lista.add(g);
                 
             }
+            return lista;
             
         } catch (Exception e) {
             System.out.println("Error de conexion con la base de datos" + e.getMessage());
+            return null ;
         }
-        return lista ;
+        
     }
     
     public boolean buscarPorId(String idBuscado){
@@ -70,6 +78,9 @@ public class GaleriaControler {
                     System.out.println("REGISTRO ENCONTRADO");
                     System.out.println("NOmbre : " + nombre + " | ciudad : " + ciudad);
                     return true;
+                }else{
+                    System.out.println("no se encontro registro");
+                    return false;
                 }
                 
             } catch (SQLException e) {
@@ -82,5 +93,7 @@ public class GaleriaControler {
         }
         return true;
     }
+    
+    
     
 }
