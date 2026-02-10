@@ -8,6 +8,7 @@ import com.galeria.model.Galeria;
 import java.util.ArrayList;
 import java.util.List;
 import com.galeria.dao.GaleriaDAO;
+import java.util.concurrent.SubmissionPublisher;
 /**
  *
  * @author Pavilion X360
@@ -146,14 +147,66 @@ public class ValidadorMenuGaleria {
         
     }
     
-//    public boolean eliminarGaleria(String idEliminar){
-//        if(idEliminar == null || idEliminar.trim().isEmpty()){
-//            System.out.println("Debe ingrresar un id valido");
-//            return false;
-//        }
-//        
+    //=====================================================================================
+    //===================INICIO METODO ACTULAIZR CON SU METODO AUXILIAR=========================0
+    //METODO ACTUALIZAR CONTENDRA UN METODO PARA VALIDAR EXITENCIA DEL OBJETO 
+    
+    // Método para validar el objeto completo según tu estándar profesional
+    public boolean validarObjetoCompleto(Galeria g) {
+        if (g == null) return false;
+
+        // Verificamos que no haya campos vacíos y reglas de longitud
+        boolean idOk = !g.getIdGaleria().isEmpty();
+        boolean nombreOk = g.getNombre().length() >= 3;
+        boolean ciudadOk = !g.getCiudad().isEmpty();
+
+        return idOk && nombreOk && ciudadOk;
+    }
+    //metodo que toma el validador del objeto y proceder a actualizar
+    public static void prepararActualizacionGaleria(Scanner sc){
+        String buscarIdActualizar ="";
+        System.out.println("---ACTUALIZAR GALERIA---");
+        while (true) {
+            System.out.println("Ingrese el id de la galeria que actualizara o escribe 'salir");
+            buscarIdActualizar= sc.nextLine();
+            
+            if(buscarIdActualizar.equals("salir")) break;
+            
+            if(buscarIdActualizar.isEmpty()){
+                System.out.println("debe ingresar el id correctamente");
+                continue;
+            }
+            System.out.println("Ingrese nuevo nombre");
+            String nuevoNombre = sc.nextLine().trim();
+            
+            System.out.println("Ingrese nueva ciudad");
+            String nuevaCiudad = sc.nextLine().trim();
+            
+            //crear objeto nuevo
+            Galeria g = new Galeria(buscarIdActualizar, nuevoNombre, nuevaCiudad);
+            
+            // VALIDACIONES
+            if(!ValidadorMenuGaleria.getInstance().validarObjetoCompleto(g)){
+                System.out.println("Error : Los datos no cumplen con el formato establecido");
+                continue;
+            }
+            
+            //PERSISTENCIA EN LA BD
+            boolean exito = GaleriaDAO.getInstancia().actualizarGaleria(g);
+            
+            if(exito){
+                System.out.println("¡Registri actualizado con exito en la base de datos");
+                break;
+            }else{
+                System.out.println("No se encontro el id o fallo la conexion");
+            }
+          
+        }
+      
+    }
         
-        
+    //====================================================================================
+//=======================FIN DEL METODO ACTUALIZAR ============================================    
     
     
     

@@ -89,6 +89,11 @@ public class MenuGaleria {
                     System.out.println("Presione enter para continuar");
                     ValidadorMenuGaleria.prepararEliminacionGaleria(sc);
                     break;
+                case 4:
+                    System.out.println("---AQUI PODRA ACTUALIZAR LA BASE DE DATOS, DEBE BUSCARC EL OBJETO A TRAVES DE ID");
+                    ValidadorMenuGaleria.mostrarListaGalerias();
+                    ValidadorMenuGaleria.prepararActualizacionGaleria(sc);
+                    break;
                     
                 case 5:
                     System.out.println("BUSQUEDA GALERIA");

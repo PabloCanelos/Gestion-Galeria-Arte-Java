@@ -112,6 +112,28 @@ public class GaleriaDAO {
         }
     }
     
+    public boolean actualizarGaleria(Galeria g){
+        String query = "UPDATE galeria SET nombre = ?,ciudad =? WHERE id_galeria = ? ";
+        
+        try(Connection cn = ConexionBD.getInstancia().getConnection();
+            PreparedStatement ps = cn.prepareStatement(query)) {
+            
+            //setear para actualizar
+            ps.setString(2, g.getNombre());
+            ps.setString(1, g.getCiudad());
+            ps.setString(3, g.getIdGaleria());
+            
+            int filasAfcetadas = ps.executeUpdate();
+            return filasAfcetadas >0;
+            
+            
+        } catch (SQLException e) {
+            System.out.println("ERROR en la base de datos :" + e.getMessage());
+            return false;
+        }
+        
+    }
+    
     
     
 }
