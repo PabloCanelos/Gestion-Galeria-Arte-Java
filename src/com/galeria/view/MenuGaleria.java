@@ -26,7 +26,8 @@ public class MenuGaleria {
 
         int opcion = 0;
         
-        do {       
+        do { 
+             try {
             System.out.println("--- SUBMENU GESTIÓN GALERÍA ---");
             System.out.println("1)Registrar galeria");
             System.out.println("2)Listar galerias");
@@ -39,14 +40,17 @@ public class MenuGaleria {
             
             opcion =sc.nextInt();
             sc.nextLine();
-            
-            switch (opcion) {
+           
+                switch (opcion) {
                 case 1:
                     
                     /* registrar nombre, id y ciudad de galeria con sus respetivas validaciones
                     estas validaciones estan en package utils
                     */
-                    //obtenemos singleton del menu galeria
+                    /*obtenemos singleton del menu galeria
+                    *este archivo queocntiene el singleton tambien contiene el menu submenu de la galeria el
+                    *cual esta siendo importado desde menu galeria
+                    */
                     ValidadorMenuGaleria validador =ValidadorMenuGaleria.getInstance();
                     
                     //pedir id
@@ -55,7 +59,7 @@ public class MenuGaleria {
                     
                     //pedir nombre
                     String nombreGaleria = validador.validarNombreGaleria(sc);
-                    if(nombreGaleria.equals("0")) break;
+                    if(nombreGaleria.trim().equalsIgnoreCase("salir")) break;//salir sera para volver almenu principal salir del actual
                     
                     //ingresar nombre de la ciudad donde pertenece la galeria
                     String ciudadGaleria = validador.validarCiudadGalerio(sc);
@@ -81,6 +85,9 @@ public class MenuGaleria {
                     
                 case 3:
                     System.out.println("A continuacion lista de galerias para que elimine alguna");
+                    ValidadorMenuGaleria.mostrarListaGalerias();
+                    System.out.println("Presione enter para continuar");
+                    ValidadorMenuGaleria.prepararEliminacionGaleria(sc);
                     break;
                     
                 case 5:
@@ -104,6 +111,12 @@ public class MenuGaleria {
            
                 default:
                     System.out.println("opcion no existe");
+            }
+                
+            } catch (Exception e) {
+                 System.out.println("Este campo es numerico, vuelva intentarlo" + e.getMessage());
+                 
+                 sc.nextLine();
             }
             
             

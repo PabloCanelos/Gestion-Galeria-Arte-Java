@@ -31,9 +31,9 @@ public class ValidadorMenuGaleria {
         String id="";
         boolean esValido = false;
         while (!esValido) {   
-            System.out.println("ingresa id (formato ejemplo GAL-000) o escribe '0' para cancelar");
-            id = sc.nextLine();
-            if(id.equalsIgnoreCase("0")){
+            System.out.println("ingresa id (formato ejemplo GAL-000) o escribe 'salir' para cancelar");
+            id = sc.nextLine().trim();
+            if(id.trim().equalsIgnoreCase("salir")){
                 System.out.println("volviendo al menu anterior");
                 return "0";
             }
@@ -55,7 +55,7 @@ public class ValidadorMenuGaleria {
   
         while (true) { 
             System.out.println("Ingrese nombre de la galeria, minimo 3 caracteres o escribe '0' para cancelar");
-            nombreGal = sc.nextLine();
+            nombreGal = sc.nextLine().trim();
             if(nombreGal.equals("0")){
                 return "0";
             }
@@ -77,7 +77,7 @@ public class ValidadorMenuGaleria {
         String ciudadGaleria = "";
         while (true) {
             System.out.println("Ingrese nombre de la ciudad a donde pertenece la galeria o escribe '0' para volver al menu anterior)");
-            ciudadGaleria = sc.nextLine();
+            ciudadGaleria = sc.nextLine().trim();
             if(ciudadGaleria.equals("0"))break;
             if(ValidacionDatos.validarTexto(ciudadGaleria)){
                 return ciudadGaleria;
@@ -116,17 +116,45 @@ public class ValidadorMenuGaleria {
         System.out.println("=====================================================================");
     }
     
+    public static void prepararEliminacionGaleria(Scanner sc){//1_ recibe bjeto scanner
+        String idEliminar;
+        System.out.println("\n--- ELIMINAR GALERIA ---");
+        while (true) {
+            //2- captura y limpia el dato
+            System.out.println("Ingrese id a eliminar o escribe 'salir'");
+            
+            idEliminar = sc.nextLine().trim().toUpperCase();
+            if(idEliminar.equals("SALIR"))break;
+            
+            //3- validciones basicas
+            if(idEliminar.isEmpty()){
+                System.out.println("Debe ingresar el ID valido");
+                continue ;
+            }
+            /*4-) CONEXION DE PIEZAS : llamamos al singleton del DAO, el que tiene la quiery, no al singleton principal que va a la base de datos
+            */
+            boolean exito = GaleriaDAO.getInstancia().eliminarGaleria(idEliminar);
+            //5- RESPUESTA AL USUARIO
+            if(exito){
+                System.out.println("Registro " + idEliminar + "  eliminado de la base de datos");
+                break;
+            }else{
+                System.out.println("Error: No se encontro el ID o fallo la conexion");
+            }
+            
+        }
+        
+    }
+    
 //    public boolean eliminarGaleria(String idEliminar){
 //        if(idEliminar == null || idEliminar.trim().isEmpty()){
 //            System.out.println("Debe ingrresar un id valido");
 //            return false;
 //        }
-//        for (Object object : col) {
-//            
-//        }
 //        
-//        
-//    }
+        
+        
+    
     
     
     

@@ -68,7 +68,7 @@ public class GaleriaDAO {
         String sql = "SELECT * FROM galeria WHERE id_galeria = ?";
         try(Connection conn = ConexionBD.getInstancia().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, idBuscado);
+            ps.setString(1, idBuscado.trim());
             
             //extraer los datos con result set
             try(ResultSet rs = ps.executeQuery()) {
@@ -92,6 +92,24 @@ public class GaleriaDAO {
             return false;
         }
         return true;
+    }
+    /* este metodo y todos los crud sql necesitan el puente}
+    *que los conecte a la base de datos y ese es un metodo elimar galeria el
+    *cual se encuentra en validar galeria package clase
+    */
+    public boolean eliminarGaleria(String idEliminar){
+        String query ="DELETE  FROM galeria WHERE id_galeria = ?";
+        try(Connection cn = ConexionBD.getInstancia().getConnection();
+            PreparedStatement ps = cn.prepareStatement(query)) {
+            ps.setString(1, idEliminar.trim());
+            int filasAfectadas = ps.executeUpdate();//obligado guardar cantidad de filas afectadas
+            return filasAfectadas >0;// si es mayor a cero significa que existia y funciono
+            
+            
+        } catch (SQLException e) {
+            System.out.println("Error en la base de datos, revisar conexion " + e.getMessage());
+            return false;
+        }
     }
     
     

@@ -37,7 +37,7 @@ public class MenuPrincipal {
                 // VALIDACIÓN DE NÚMERO
             if (menuPrincipal.hasNextInt()) {
                 opcion = menuPrincipal.nextInt();
-                menuPrincipal.nextLine(); // Limpiar el buffer
+                menuPrincipal.nextLine(); 
             } else {
                 System.out.println("❌ Error: Por favor, ingrese un número, no letras.");
                 menuPrincipal.nextLine(); // Limpiar el error del buffer
