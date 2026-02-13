@@ -36,8 +36,9 @@ public class GaleriaDAO {
             
         } catch (SQLException e) {
             System.out.println("Error al crear " + e.getMessage());
-            return false;
+            
         }
+        return false;
         
     }
     public  List<Galeria> listar(){
@@ -59,8 +60,9 @@ public class GaleriaDAO {
             
         } catch (Exception e) {
             System.out.println("Error de conexion con la base de datos" + e.getMessage());
-            return null ;
+            
         }
+        return null ;
         
     }
     
@@ -89,13 +91,13 @@ public class GaleriaDAO {
             
         } catch (SQLException e) {
             System.out.println("No se encontro el id" + idBuscado);
-            return false;
+            
         }
-        return true;
+        return false;
     }
     /* este metodo y todos los crud sql necesitan el puente}
-    *que los conecte a la base de datos y ese es un metodo elimar galeria el
-    *cual se encuentra en validar galeria package clase
+    *que los conecte a la base de datos y ese es un metodo eliminar galeria el
+    *cual se encuentra en validar galeria package 
     */
     public boolean eliminarGaleria(String idEliminar){
         String query ="DELETE  FROM galeria WHERE id_galeria = ?";
@@ -108,8 +110,9 @@ public class GaleriaDAO {
             
         } catch (SQLException e) {
             System.out.println("Error en la base de datos, revisar conexion " + e.getMessage());
-            return false;
+           
         }
+         return false;
     }
     
     public boolean actualizarGaleria(Galeria g){
@@ -129,11 +132,11 @@ public class GaleriaDAO {
             
         } catch (SQLException e) {
             System.out.println("ERROR en la base de datos :" + e.getMessage());
-            return false;
+            
         }
+        return false;
         
     }
-    
     
     
 }
