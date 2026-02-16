@@ -100,6 +100,48 @@ public class CriticoDAO {
         }
         return false;
     }
+     /* este metodo y todos los crud sql necesitan el puente}
+    *que los conecte a la base de datos y ese es un metodo eliminar galeria el
+    *cual se encuentra en validar galeria package 
+    */
+    public boolean eliminarCritico(String rutEliminar){
+        String query = "DELETE FROM critico WHERE rut = ?";
+        
+        try(Connection cn = ConexionBD.getInstancia().getConnection();
+            PreparedStatement ps = cn.prepareStatement(query)) {
+            
+            ps.setString(1, rutEliminar.trim());
+            int filasAfectadas= ps.executeUpdate();
+            return filasAfectadas>0;
+            
+        } catch (SQLException e) {
+            System.out.println("Error en la base de datos, revisar conexion" + e.getMessage());
+        }
+        return false;      
+    }
+    
+    
+    public boolean actualizarCritico(Critico critico){
+        
+        String query ="UPDATE critico SET nombre_critico=?, especialidad =?, anios_experiencia=? WHERE rut =?";
+        try(Connection cn = ConexionBD.getInstancia().getConnection();
+            PreparedStatement ps = cn.prepareStatement(query)) {
+            
+            ps.setString(1, critico.getNombreCritico());
+            ps.setString(2, critico.getEspecialidad());
+            ps.setInt(3, critico.getAniosExperiencia());
+            ps.setString(4, critico.getRut());
+            
+            int filasAfcetadas = ps.executeUpdate();
+            return filasAfcetadas >0;
+            
+        } catch (SQLException e) {
+            System.out.println("Error en la base de datos " +e.getMessage());
+        }
+        return false;
+        
+    }
+    
     
     
 }

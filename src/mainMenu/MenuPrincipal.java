@@ -9,6 +9,7 @@ import com.galeria.model.Cuadro;
 import com.galeria.model.Evaluacion;
 import com.galeria.model.Galeria;
 import com.galeria.view.MenuGaleria;
+import com.galeria.view.MenuCritico;
 import java.util.Scanner;
 
 /**
@@ -26,6 +27,10 @@ public class MenuPrincipal {
         
         
         do {  
+            try {
+                
+            } catch (Exception e) {
+            }
             System.out.println("1)Gestion galeria");
             System.out.println("2)Gestion cuadro");
             System.out.println("3)Gestion critico");
@@ -55,15 +60,19 @@ public class MenuPrincipal {
                     
                     break;
                     
+                case 3:
+                    MenuCritico.menuCritico();
+                    break;
                     
                 case 5:
                     System.out.println("Presiona ENTER para salir del menu...");
+                    menuPrincipal.nextLine();
                     //menuPrincipal.nextInt();
                     //menuPrincipal.nextLine();
                    
                     break;
                 default:
-                    System.out.println("Opcion no existe");;
+                    System.out.println("Opcion no existe");
             }
             
             

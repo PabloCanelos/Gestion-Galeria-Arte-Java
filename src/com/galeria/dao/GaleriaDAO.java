@@ -122,8 +122,8 @@ public class GaleriaDAO {
             PreparedStatement ps = cn.prepareStatement(query)) {
             
             //setear para actualizar
-            ps.setString(2, g.getNombre());
-            ps.setString(1, g.getCiudad());
+            ps.setString(1, g.getNombre());
+            ps.setString(2, g.getCiudad());
             ps.setString(3, g.getIdGaleria());
             
             int filasAfcetadas = ps.executeUpdate();

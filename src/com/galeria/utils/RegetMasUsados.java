@@ -11,6 +11,10 @@ package com.galeria.utils;
 public class RegetMasUsados {
     
     /*A CONTINUACIOJN LISTA DE REGET MAS USADOS
+    
+    --REGET PARA VALIDAR RUT CHILENO
+    ^[0-9]{1,2}\.?[0-9]{3}\.?[0-9]{3}-[0-9kK]{1}$
+    
     ---Permite letras, tildes y espacios. Ideal para el Nombre de la Galería.---
     solo letras
     ^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$

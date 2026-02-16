@@ -27,6 +27,7 @@ public class MenuGaleria {
         int opcion = 0;
         
         do { 
+            
              try {
             System.out.println("--- SUBMENU GESTIÓN GALERÍA ---");
             System.out.println("1)Registrar galeria");
@@ -55,7 +56,7 @@ public class MenuGaleria {
                     
                     //pedir id
                     String id = validador.leerIdValido(sc);
-                    if(id.equals("0")) break;
+                    if(id.equals("salir")) break;
                     
                     //pedir nombre
                     String nombreGaleria = validador.validarNombreGaleria(sc);
@@ -125,7 +126,7 @@ public class MenuGaleria {
             }
             
             
-        } while (opcion != 7);
+        } while (opcion != 6);
         
     }
     

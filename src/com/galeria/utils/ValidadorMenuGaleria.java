@@ -8,7 +8,7 @@ import com.galeria.model.Galeria;
 import java.util.ArrayList;
 import java.util.List;
 import com.galeria.dao.GaleriaDAO;
-import java.util.concurrent.SubmissionPublisher;
+
 /**
  *
  * @author Pavilion X360
@@ -55,10 +55,10 @@ public class ValidadorMenuGaleria {
         String nombreGal = "";
   
         while (true) { 
-            System.out.println("Ingrese nombre de la galeria, minimo 3 caracteres o escribe '0' para cancelar");
+            System.out.println("Ingrese nombre de la galeria, minimo 3 caracteres o escribe 'salir' para cancelar");
             nombreGal = sc.nextLine().trim();
-            if(nombreGal.equals("0")){
-                return "0";
+            if(nombreGal.equals("salir")){
+                return "salir";
             }
             
             if(!ValidacionDatos.validarTexto(nombreGal)){
@@ -77,9 +77,9 @@ public class ValidadorMenuGaleria {
     public String validarCiudadGalerio(Scanner sc){
         String ciudadGaleria = "";
         while (true) {
-            System.out.println("Ingrese nombre de la ciudad a donde pertenece la galeria o escribe '0' para volver al menu anterior)");
+            System.out.println("Ingrese nombre de la ciudad a donde pertenece la galeria o escribe 'salir' para volver al menu anterior)");
             ciudadGaleria = sc.nextLine().trim();
-            if(ciudadGaleria.equals("0"))break;
+            if(ciudadGaleria.equals("salir"))break;
             if(ValidacionDatos.validarTexto(ciudadGaleria)){
                 return ciudadGaleria;
             }else{
