@@ -120,7 +120,7 @@ public class MenuGaleria {
             }
                 
             } catch (Exception e) {
-                 System.out.println("Este campo es numerico, vuelva intentarlo" + e.getMessage());
+                 System.out.println("Este campo es numerico, vuelva intentarlo " );
                  
                  sc.nextLine();
             }

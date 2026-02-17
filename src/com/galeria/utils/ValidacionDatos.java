@@ -30,7 +30,7 @@ public class ValidacionDatos {
         if(texto.trim().matches(regex)){
             return true;
         }
-        System.out.println("Formato no es valido");
+        //System.out.println("Formato no es valido");
         return false;
     }
     
@@ -72,9 +72,15 @@ public class ValidacionDatos {
       
     }
     
-    public static void limpiarPantalla() {
+    public static void limpiarPantallaSaltos() {
     for (int i = 0; i < 15; i++) {
         System.out.println();
     }}
+    public static void limpiarPantallaSout() {
+    System.out.println("\n\n"); // Solo un par de espacios para respirar
+    System.out.println("************************************************************");
+    System.out.println("********** NUEVA OPERACIÓN CRÍTICA         **********");
+    System.out.println("************************************************************");
+}
     
 }

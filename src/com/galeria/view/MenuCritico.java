@@ -67,13 +67,14 @@ public class MenuCritico {
                         
                         if(insertado){
                             System.out.println("\n REGISTRO EXITOSO: El critico ha sido guardado en la base de datos ");
+                            System.out.println("Presione enter para continuar");
                         }else{
                             System.out.println("ERROR: No se uedo guardar el critico enla base de datos");
                             
                         }
                         sc.nextLine();
-                        ValidacionDatos.limpiarPantalla();
-                         
+                        //
+                        
                         
                         }
 
@@ -85,7 +86,19 @@ public class MenuCritico {
                         System.out.println("Presione ENTER para volver al menu principal");
                         sc.nextLine();
                         break;
-                        
+                    
+                    case 3:
+                        System.out.println("--- PARA ELIMINAR AL CRITICO DEBE BUSCARLO POR SU RUT ---");
+                        ValidadorMenuCritico.eliminarCritico(sc);
+                        System.out.println("Presione ENTER para volver al menu principal");
+                        sc.nextLine();
+                        break;
+                    case 4:
+                        System.out.println("--- MODIFICAR DATOS ---");
+                        ValidadorMenuCritico.actualizarDatosCritico(sc);
+                        System.out.println("presione ENTER para volver al menu principal");
+                        sc.nextLine();
+                        break;
                         
                     case 6:
                         System.out.println("volviendo al menu principal");

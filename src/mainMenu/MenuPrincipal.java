@@ -27,10 +27,10 @@ public class MenuPrincipal {
         
         
         do {  
-            try {
-                
-            } catch (Exception e) {
-            }
+//            try {
+//                
+//            } catch (Exception e) {
+//            }
             System.out.println("1)Gestion galeria");
             System.out.println("2)Gestion cuadro");
             System.out.println("3)Gestion critico");

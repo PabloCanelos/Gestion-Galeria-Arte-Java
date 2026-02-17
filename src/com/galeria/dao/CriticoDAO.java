@@ -74,9 +74,9 @@ public class CriticoDAO {
         return null;
     }
     
-    public boolean buscarPorRut(String rutBuscado){
+    public Critico buscarPorRut(String rutBuscado){
         String query = "SELECT * FROM critico WHERE rut = ?";
-        
+        Critico criticoEncontrado = null;
         try(Connection cn = ConexionBD.getInstancia().getConnection();
             PreparedStatement ps = cn.prepareStatement(query)) {
             
@@ -88,17 +88,15 @@ public class CriticoDAO {
                     String nombre = rs.getString("nombre_critico");
                     String especialidad = rs.getString("especialidad");
                     int anios_experiencia = rs.getInt("anios_experiencia");
+                    criticoEncontrado= new Critico(rut, nombre, especialidad, anios_experiencia);
                 }
                 
-            } catch (SQLException e) {
-                System.out.println("NO se encontro rut enla base de datos" + e.getMessage());
             }
-            
-            
+      
         } catch (SQLException e) {
             System.out.println("ERROR enla consulta: " + e.getMessage());
         }
-        return false;
+        return criticoEncontrado;
     }
      /* este metodo y todos los crud sql necesitan el puente}
     *que los conecte a la base de datos y ese es un metodo eliminar galeria el

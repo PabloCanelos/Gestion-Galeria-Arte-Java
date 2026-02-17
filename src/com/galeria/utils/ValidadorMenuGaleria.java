@@ -62,7 +62,7 @@ public class ValidadorMenuGaleria {
             }
             
             if(!ValidacionDatos.validarTexto(nombreGal)){
-                System.out.println("Nombre no es validado correctamente");
+                continue;
                 
             }else{
                 System.out.println("nombre correcto");
@@ -195,7 +195,7 @@ public class ValidadorMenuGaleria {
             boolean exito = GaleriaDAO.getInstancia().actualizarGaleria(g);
             
             if(exito){
-                System.out.println("¡Registri actualizado con exito en la base de datos");
+                System.out.println("¡Registro actualizado con exito en la base de datos");
                 break;
             }else{
                 System.out.println("No se encontro el id o fallo la conexion");
